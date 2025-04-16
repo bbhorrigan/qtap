@@ -1,0 +1,11 @@
+type: s3
+id: s3-store
+endpoint: custom.s3.endpoint.com
+bucket: my-test-bucket
+region: us-west-2
+access_url: https://custom.cdn.example.com
+insecure: false
+access_key:
+  value: access-key-123
+secret_key:
+  value: secret-key-456 

@@ -1,0 +1,5 @@
+type: qpoint
+id: qpoint-store
+url: https://warehouse.example.com
+token:
+  value: qpoint-token 

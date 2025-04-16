@@ -1,0 +1,3 @@
+ca: ca-cert-data
+crt: certificate-data
+key: private-key-data 

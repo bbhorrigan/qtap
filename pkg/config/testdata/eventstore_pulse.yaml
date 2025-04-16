@@ -1,0 +1,5 @@
+type: pulse
+id: pulse-store
+url: https://pulse.example.com
+token:
+  value: secret-token 

@@ -1,0 +1,2 @@
+type: env
+value: TEST_ENV_VAR 
