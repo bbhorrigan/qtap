@@ -5,6 +5,7 @@ type QtapComponent uint32
 
 const (
 	QtapCa QtapComponent = iota
+	QtapDebug
 	QtapGotls
 	QtapJavassl
 	QtapNodetls
@@ -17,6 +18,10 @@ const (
 
 func QtapComponentFromString(s string) (QtapComponent, bool) {
 	switch s {
+	case "ca":
+		return QtapCa, true
+	case "debug":
+		return QtapDebug, true
 	case "gotls":
 		return QtapGotls, true
 	case "javassl":
@@ -33,8 +38,7 @@ func QtapComponentFromString(s string) (QtapComponent, bool) {
 		return QtapRedirector, true
 	case "socket":
 		return QtapSocket, true
-	case "ca":
-		return QtapCa, true
+
 	default:
 		return 0, false
 	}
