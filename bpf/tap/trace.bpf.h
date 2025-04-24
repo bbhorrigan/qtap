@@ -30,6 +30,7 @@
 // enum to represent the different components that can be traced
 enum QTAP_COMPONENT {
 	QTAP_CA,
+	QTAP_DEBUG,
 	QTAP_GOTLS,
 	QTAP_JAVASSL,
 	QTAP_NODETLS,
@@ -344,6 +345,7 @@ static __always_inline void trace_port(uint64_t tsid, const char *title, uint16_
 // Empty definitions when tracing is not enabled
 #define TRACE_IF_ENABLED(component, pid, ...)
 #define TRACE_CA(pid, ...)
+#define TRACE_DEBUG(pid, ...)
 #define TRACE_GOTLS(pid, ...)
 #define TRACE_JAVASSL(pid, ...)
 #define TRACE_NODETLS(pid, ...)
@@ -360,6 +362,7 @@ static __always_inline void trace_port(uint64_t tsid, const char *title, uint16_
 	}
 
 #define TRACE_CA(pid, ...)         TRACE_IF_ENABLED(QTAP_CA, pid, __VA_ARGS__)
+#define TRACE_DEBUG(pid, ...)      TRACE_IF_ENABLED(QTAP_DEBUG, pid, __VA_ARGS__)
 #define TRACE_GOTLS(pid, ...)      TRACE_IF_ENABLED(QTAP_GOTLS, pid, __VA_ARGS__)
 #define TRACE_JAVASSL(pid, ...)    TRACE_IF_ENABLED(QTAP_JAVASSL, pid, __VA_ARGS__)
 #define TRACE_NODETLS(pid, ...)    TRACE_IF_ENABLED(QTAP_NODETLS, pid, __VA_ARGS__)
