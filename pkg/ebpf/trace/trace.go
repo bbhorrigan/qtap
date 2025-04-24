@@ -38,7 +38,6 @@ func QtapComponentFromString(s string) (QtapComponent, bool) {
 		return QtapRedirector, true
 	case "socket":
 		return QtapSocket, true
-
 	default:
 		return 0, false
 	}
