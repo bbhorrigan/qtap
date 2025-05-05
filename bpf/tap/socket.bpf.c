@@ -732,8 +732,16 @@ static void process_data(struct socket_ctx *ctx, enum DIRECTION direction, const
 	}
 
 	// if we successfully detected the protocol, submit the protocol event
-	if (protocol == P_UNKNOWN && conn_info->protocol != P_UNKNOWN)
-		submit_proto_event(ctx, conn_info);
+
+if (protocol == P_UNKNOWN && conn_info->protocol != P_UNKNOWN)
+    submit_proto_event(ctx, conn_info);
+
+if (conn_info->protocol == P_HTTP1 || conn_info->protocol == P_HTTP2) {
+    char msg[64] = {};
+    bpf_probe_read_user(&msg, sizeof(msg), (void *)args->buf);
+    bpf_printk("HTTP protocol detected, initial data: %s\n", msg);
+}
+
 
 	// we only stream data if we know the protocol
 	if (conn_info->protocol == P_UNKNOWN) {
